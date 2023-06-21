@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>쇼핑몰 연습</title>
+    <link href="./resources/css/2column.css" rel="stylesheet">
+    <style>
+        #container {
+
+            width: device-width;
+            margin: 20px auto;
+        }
+
+        #header {
+            width: 100%;
+            height: 120px;
+            background-color: bisque;
+            float: left;
+        }
+
+        #header.h1 {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+
+        #content {
+
+            display: inline-block;
+            position: relative;
+            width: 100%;
+            height: 600px;
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+
+
+
+
+        #aside1 li {
+            padding: 15px;
+            margin: 1px;
+
+        }
+
+        #aside1 {
+            position: absolute;
+            right: 20px;
+
+            top: 50px;
+            width: 160px;
+            height: 260px;
+            background-color: rgba(360, 0, 0, 0.1);
+            float: right;
+            text-align: center;
+        }
+
+        a {
+            padding: 10px 10px;
+            text-decoration: none;
+        }
+
+        
+
+        #footer {
+            display: block;
+            width: 100%;
+            height: 120px;
+            background-color: blue;
+            clear: both;
+        }
+
+        #hh {
+            position: fixed;
+            z-index: 100;
+            width: 100px;
+            float: left;
+            z-index: 100;
+        }
+        header{
+            position: relative;
+        }
+
+
+        header>h1 {
+            display: inline-block;
+            position: absolute;
+            text-align: center;
+            width: 100%;
+           line-height: 120px;
+        }
+        header>a{
+            display: inline;
+            position: absolute;
+            left: 0px;
+            line-height: 120px;
+        }
+
+        div.sec {
+            display: inline-block;
+            padding: 30px;
+
+        }
+
+        div.sec p {
+            text-align: center;
+            font-family: 20px '맑은 고딕'
+
+        }
+
+        h1>a:visited{
+            color: #000;
+        }
+        h1>a:link{
+            color: #000;
+        }
+        nav li{
+            display: inline;
+            padding: 40px;
+        }
+        section>nav{
+            text-align: center;
+        }
+      
+        
+    </style>
+</head>
+
+<body>
+   
+    <div id="container">
+
+        <header id="header">
+            <h1> <a href="./20230621_practice.html">쇼핑몰 연습용</a></h1>
+            <a href="./20230621_practice.html"><img src="./resources/images/구글.png" width="40px"></a> 
+        </header>
+        <hr>
+
+        <section>
+        <nav>
+            <ul>
+                <li>남성용</li>
+                <li>|</li>
+                <li>여성용</li>
+                <li>|</li>
+                <li>어린이용</li>
+            </ul>
+        </section>
+        </nav>
+
+        <section id="content">
+            <a href="https://www.musinsa.com/categories/item/001001">
+                <div class="sec"><img src="./resources/images/티셔츠.jpg">
+                    <p>티셔츠 10000원</p>
+                </div>
+            </a>
+            <a href="https://www.musinsa.com/categories/item/003">
+                <div class="sec"><img src="./resources/images/바지.jpg">
+                    <p>바지 20000원</p>
+                </div>
+            </a>
+            <a href="https://www.musinsa.com/categories/item/022">
+                <div class="sec"><img src="./resources/images/치마.jpg">
+                    <p>치마 30000원</p>
+                </div>
+            </a>
+            <a href="https://www.musinsa.com/categories/item/002007">
+                <div class="sec"><img src="./resources/images/코트.jpg">
+                    <p>코트 90000원</p>
+                </div>
+            </a>
+            <a href="https://www.musinsa.com/categories/item/005">
+                <div class="sec"><img src="./resources/images/운동화.jpg" width="225px" height="225px">
+                    <p>운동화 50000원</p>
+                </div>
+            </a>
+            <a href="https://www.musinsa.com/categories/item/005004">
+                <div class="sec"><img src="./resources/images/샌들.jpg"width="225px" height="225px">
+                    <p>샌들 15000원</p>
+                </div>
+            </a>
+            <a href="https://www.musinsa.com/categories/item/004">
+                <div class="sec"><img src="./resources/images/가방.jpg"width="225px" height="225px">
+                    <p>가방 110000원</p>
+                </div>
+            </a>
+            <a href="https://www.musinsa.com/categories/item/007">
+                <div class="sec"><img src="./resources/images/모자.jpg"width="225px" height="225px">
+                    <p>모자 135000원</p>
+                </div>
+            </a>
+
+           
+            
+            
+
+            <aside id="aside1">
+                <!-- <h2>사이드바 제목</h2> -->
+                <ul>
+                    <li><a href="http://naver.com">회원가입</a></li>
+                    <li><a href="http://nate.com">로그인</a></li>
+                    <li><a href="http://suddenattack.com">아이디 찾기</a></li>
+                    <li><a href="http://nexon.com">비밀번호 찾기</a></li>
+                    <li><a href="http://daum.net">1대1 상담</a></li>
+                </ul>
+            </aside>
+        </section>
+        <br><br><br><br>
+        <footer class="footer">
+            <p>사업자:염호준</p>
+            <p>사업자번호:010123456789</p>
+            <p>사업명:쇼핑몰 연습</p>
+            <p>만나서 잘부탁해요</p>
+        </footer>
+    </div>
+</body>
+
+</html>
