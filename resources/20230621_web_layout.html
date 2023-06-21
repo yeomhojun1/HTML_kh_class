@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="./css/reset.css" rel="stylesheet">
+    <style>
+        div {
+            background: #eee;
+            border: 1px solid black;
+            display: block;
+            position: static;
+
+            padding: 20px;
+        }
+
+        #hh {
+            position: fixed;
+            z-index: 100;
+            width: 100px;
+            
+        }
+
+
+        #id1 {
+            /*
+            fixed는 고정위치에 배치, 대신 고정하는 위치가 자유로움
+            top.bottom.left.right와 함께 사용됨
+            width/height 지정도 함께 해야함.
+            */
+            z-index: 100;
+            display: block;
+            position: fixed;
+
+            bottom: 30px;
+            right: 20px;
+            width: 100px;
+        }
+
+        #id3 {
+            position: relative;
+            /* relative 기능
+            1.absolute의 시작점이됨
+            나의 자식/후손 중에 absolute가 있으면 absolute인 요소의 
+            높이만큼을 height로 지정해 줘야함
+            2. 흐름상 자연스럽게 들어감 
+            top,bottom,left,right만큼 띄우고 위치할수있음 
+            width/height 함께 작성되어야함.
+            */
+            height: 600px;
+        }
+
+        #id3>p:nth-child(1) {
+            /*
+            absolute는 자유롭게 배치
+            top.bottom.left.right와 함께 사용됨
+            width/height 지정도 함께 해야함.
+            */
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            width: 100px;
+            background-color: antiquewhite;
+        }
+
+        #id3>p:nth-child(2) {
+            position: absolute;
+            top: 10px;
+            right: 140px;
+            width: 100px;
+            background-color: azure;
+        }
+
+        #id3>p:nth-child(3) {
+            position: absolute;
+            top: 10px;
+            right: 280px;
+
+            width: 100px;
+            background-color: beige;
+        }
+
+        #id5 {
+            position: relative;
+            top: 10px;
+            left: 20px;
+            width: 80%;
+        }
+        #id8{
+            
+            overflow: hidden;
+            /*
+            overflow:hidden;의 추가적인 기능
+            나의 자식요소들으 ㅣ크기를 계산해냄
+            자식 요소중 float 지정한 것이 있으며 
+            */
+        }
+        #id8 p{
+            /*
+            float 배치 설정한다면
+            반드시 
+            부모태그에 overflow:hidden; 추가
+            
+            */
+            float: left;
+            /* display: inline-block; */
+            width: 200px;
+            border: 1px solid blue;
+           /* visibility: collapse; */
+        }
+        #id9{
+            /*
+            위 id8에서 잘못 구현된 경우 그 영향이 id9에게 끼칠수있으므로
+            방지차원에서 clear:both;를 추가함(꼭필요한건 아님)
+            */
+            clear: both;
+            overflow: hidden;
+        }
+        #id9 p:nth-child(1){
+            /*
+            float: left;는 지정된 width외 
+            나머지 공간을 다른 요소들에게 양보함
+            따라서 다음에 이어서 나오는 
+            block 요소인 p태그들이 그 공간에 작성하게됨
+            */
+            float: right;
+            width: 200px;
+            border: 1px solid blue;
+
+        }
+        #id9 p:nth-child(2){
+            clear: both;
+        }
+        nav>ul li{
+            display: inline-block;
+            padding: 10px 10px;
+            
+        }
+        nav>ul li:first-of-type{
+            padding-left: 100px;
+          
+        
+        }
+        nav>ul li:last-of-type{
+            padding-right: 100px;
+           
+            
+        }
+        a{
+            color: red;
+            padding: 10px 10px;
+            text-decoration: none;
+        }
+        a:hover{
+            background-color: aqua;
+            color: red;
+        }
+        a:link{
+            color: pink;
+        }
+        a:visited{
+            color: darkolivegreen;
+        }
+        a:active{
+            color: deeppink;
+            background-color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <img src="./images/구글.png" id="hh" > -->
+    <nav>
+        <ul>
+            <li><a href="http://naver.com">메뉴1</a></li>
+            <li>|</li>
+            <li>메뉴2</li>
+            <li>|</li>
+            <li>메뉴3</li>
+        </ul>
+    </nav>
+    <div id="id1">
+        <p>id1 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Assumenda nostrum odio quis cumque voluptates
+            laudantium, quae, perferendis autem inventore reprehenderit sed, aliquid minus temporibus ullam! Iusto quo
+            inventore magnam consectetur.</p>
+    </div>
+    <div id="id2">
+        <p>id2 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Assumenda nostrum odio quis cumque voluptates
+            laudantium, quae, perferendis autem inventore reprehenderit sed, aliquid minus temporibus ullam! Iusto quo
+            inventore magnam consectetur.</p>
+    </div>
+    <div id="id3">
+        <p>id3 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Assumenda nostrum odio quis cumque voluptates
+            laudantium, quae, perferendis autem inventore reprehenderit sed, aliquid minus temporibus ullam! Iusto quo
+            inventore magnam consectetur.</p>
+        <p>id3 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Assumenda nostrum odio quis cumque voluptates
+            laudantium, quae, perferendis autem inventore reprehenderit sed, aliquid minus temporibus ullam! Iusto quo
+            inventore magnam consectetur.</p>
+        <p>id3 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Assumenda nostrum odio quis cumque voluptates
+            laudantium, quae, perferendis autem inventore reprehenderit sed, aliquid minus temporibus ullam! Iusto quo
+            inventore magnam consectetur.</p>
+    </div>
+    <div id="id4">
+        <p>id4 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Assumenda nostrum odio quis cumque voluptates
+            laudantium, quae, perferendis autem inventore reprehenderit sed, aliquid minus temporibus ullam! Iusto quo
+            inventore magnam consectetur.</p>
+    </div>
+    <div id="id5">
+        <p>id5 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Assumenda nostrum odio quis cumque voluptates
+            laudantium, quae, perferendis autem inventore reprehenderit sed, aliquid minus temporibus ullam! Iusto quo
+            inventore magnam consectetur.</p>
+    </div>
+    <div id="id6">
+        <p>id5 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Assumenda nostrum odio quis cumque voluptates
+            laudantium, quae, perferendis autem inventore reprehenderit sed, aliquid minus temporibus ullam! Iusto quo
+            inventore magnam consectetur.</p>
+    </div>
+    <div id="id7">
+        <p>id5 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Assumenda nostrum odio quis cumque voluptates
+            laudantium, quae, perferendis autem inventore reprehenderit sed, aliquid minus temporibus ullam! Iusto quo
+            inventore magnam consectetur.</p>
+    </div>
+    <div id="id8">
+        <p>id8 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Assumenda nostrum odio quis cumque voluptates
+            laudantium, quae, perferendis autem inventore reprehenderit sed, aliquid minus temporibus ullam! Iusto quo
+            inventore magnam consectetur.</p>
+        <p>id8 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Assumenda nostrum odio quis cumque voluptates
+            laudantium, quae, perferendis autem inventore reprehenderit sed, aliquid minus temporibus ullam! Iusto quo
+            inventore magnam consectetur.</p>
+        <p>id8 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Assumenda nostrum odio quis cumque voluptates
+            laudantium, quae, perferendis autem inventore reprehenderit sed, aliquid minus temporibus ullam! Iusto quo
+            inventore magnam consectetur.</p>
+        <p>id8 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Assumenda nostrum odio quis cumque voluptates
+            laudantium, quae, perferendis autem inventore reprehenderit sed, aliquid minus temporibus ullam! Iusto quo
+            inventore magnam consectetur.</p>
+
+    </div>
+    <div id="id9">
+        <p>id9 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Assumenda nostrum odio quis cumque voluptates
+            laudantium, quae, perferendis autem inventore reprehenderit sed, aliquid minus temporibus ullam! Iusto quo
+            inventore magnam consectetur.</p>
+        <p>id9 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Assumenda nostrum odio quis cumque voluptates
+            laudantium, quae, perferendis autem inventore reprehenderit sed, aliquid minus temporibus ullam! Iusto quo
+            inventore magnam consectetur.</p>
+        <p>id9 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Assumenda nostrum odio quis cumque voluptates
+            laudantium, quae, perferendis autem inventore reprehenderit sed, aliquid minus temporibus ullam! Iusto quo
+            inventore magnam consectetur.</p>
+        <p>id9 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Assumenda nostrum odio quis cumque voluptates
+            laudantium, quae, perferendis autem inventore reprehenderit sed, aliquid minus temporibus ullam! Iusto quo
+            inventore magnam consectetur.</p>
+
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2단 레이아웃</title>
+    <link href="./css/2column.css" rel="stylesheet">
+    <style>
+        #container {
+            width: device-width;
+            margin: 20px auto;
+        }
+
+        #header {
+            width: 100%;
+            height: 120px;
+            background-color: red;
+            float: left;
+            
+        }
+
+        #aside1 {
+            position: fixed;
+            right: 20px;
+            top: 50px;
+            width: 30px;
+            height: 600px;
+            background-color: green;
+            float: right;
+        }
+        #aside2 {
+            position: fixed;
+            left: 20px;
+            top: 50px;
+            width: 30px;
+            height: 600px;
+            background-color: black;
+            float: left;
+        }
+
+        #content {
+            display: inline-block;
+            position: relative;
+            width: 100%;
+            height: 600px;
+            float: left;
+        }
+
+        #footer {
+            display: block;
+            width: 100%;
+            height: 120px;
+            background-color: blue;
+            clear: both;
+        }
+        #hh {
+            position: fixed;
+            z-index: 100;
+            width: 100px;
+            float: left;
+            z-index: 100;
+        }
+        #pos1{
+            position: absolute;
+            left: 40px;
+            top: 60px;
+        }
+        #pos2{
+            position: absolute;
+            right: 40px;
+            top: 10px;
+        }
+        #pos3{
+            position: absolute;
+            left: 80px;
+            bottom: 10px;
+        }
+        #pos4{
+            position: absolute;
+            right: 40px;
+            bottom: 50px;
+        }
+        section> p{
+
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <input type="image" src="./images/구글.png" id="hh">
+        <header id="header">
+            <h1>사이트 제목</h1>
+        </header>
+        <aside id="aside1">
+            <h2>사이드바 제목</h2>
+        </aside>
+        <aside id="aside2">
+            <h2>사이드바 제목</h2>
+        </aside>
+        <section id="content">
+            <h2>본문 내용</h2>
+            <input type="img" src="./images/다현.jpg" id="pos1">
+            <div id="pos2">남산 위에 저 소나무, 철갑을 두른 듯
+
+                바람서리 불변함은 우리 기상일세.
+                
+                무궁화 삼천리 화려강산
+                
+                대한 사람, 대한으로 길이 보전하세</div>
+            <div id="pos3">가을 하늘 공활한데 높고 구름 없이
+
+                밝은 달은 우리 가슴 일편단심일세.
+                
+                무궁화 삼천리 화려강산
+                
+                대한 사람, 대한으로 길이 보전하세</div>
+            <div id="pos4">이 기상과 이 맘으로 충성을 다하여
+
+                괴로우나 즐거우나 나라 사랑하세.
+                
+                무궁화 삼천리 화려강산
+                
+                대한 사람, 대한으로 길이 보전하세</div>
+        </section>
+        <footer class="footer">
+            <h2>푸터 제목</h2>
+        </footer>
+    </div>
+</body>
+
+</html>

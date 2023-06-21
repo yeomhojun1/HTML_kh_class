@@ -1,47 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>20230620practice</title>
-    <link href="./resources/css/reset.css" rel="stylesheet">
+    <!-- <link href="./resources/css/reset.css" rel="stylesheet"> -->
     <style>
-        p{ text-align: center; color: blue; font-style: italic;}
+        @font-face {
+            font-family: 'Grandiflora One';
+            font-style: normal;
+            font-display: swap;
+            src: 
+            local('Grandiflora One')
+            url(https://fonts.gstatic.com/s/grandifloraone/v1/0ybmGD0g27bCk_5MGWZcKWhxwnUU-HXk8jzldjv8eN-9uvVab0W0gMTl.0.woff2) format('woff2');
+            unicode-range: U+f9ca-fa0b, U+ff03-ff05, U+ff07, U+ff0a-ff0b, U+ff0d-ff19, U+ff1b, U+ff1d, U+ff20-ff5b, U+ff5d, U+ffe0-ffe3, U+ffe5-ffe6;
+        }
+
+
+
+        /* <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Grandiflora+One&display=swap" rel="stylesheet"> */
+
+
+        p {
+            text-align: center;
+            color: blue;
+            font-style: italic;
+        }
+
         /* h1{ padding: 10px; background-color: #222; color: #fff;} */
-        *{ margin : 0;}
-        .accent{border: 1px solid #000; padding: 5px;}
-        .bg{background-color: #ddd;}
-        #container{
+        * {
+            margin: 0;
+        }
+
+        .accent {
+            border: 1px solid #000;
+            padding: 5px;
+        }
+
+        .bg {
+            background-color: #ddd;
+        }
+
+        #container {
             width: 500px;
             margin: 10px auto;
             padding: 10px;
-            border: 1px solid#000;
+            border: 1px solid red;
             text-align: center;
         }
-        body{
+
+        body {
             font-family: 돋움;
             font-size: 20px;
-            
+
         }
-        h1{
+
+        h1 {
             font-size: 2em;
-            
+
         }
-        p{
+
+        p {
             font-weight: 200;
         }
-        .css{font-family: 맑은 고딕;font-weight: 500; color: aqua; text-shadow: 10px -3px red; line-height: 2;}
-        .html{letter-spacing: 10px;}
-        .book1{list-style-type: none;}
-        .book2{list-style-type: upper-alpha;}
-        table{
-            caption-side: top; border: 100px solid blue;
+
+        .css {
+            font-family: '맑은 고딕';
+            font-weight: 500;
+            color: aqua;
+            text-shadow: 10px -3px red;
+            line-height: 2;
         }
-        tr ,td {
-            border: 10px dotted red; text-align: left;
+
+        .html {
+            letter-spacing: 10px;
+        }
+
+        .book1 {
+            list-style-type: none;
+        }
+
+        .book2 {
+            list-style-type: upper-alpha;
+        }
+
+        table {
+            caption-side: top;
+            border: 100px solid blue;
+        }
+
+        tr,
+        td {
+            border: 10px dotted red;
+            text-align: left;
+        }
+
+        div {
+            font-family: 'Grandiflora One', serif;
+            /* font-family: 함초롱바탕,'Courier New', Courier, monospace; */
+            font-style: italic;
         }
     </style>
 </head>
+
 <body>
     <h1 class="accent bg">레드향</h1>
     <p>가나다라마바사</p>
@@ -54,12 +118,13 @@
         <li>맹꽁이서당2</li>
         <li>맹꽁이서당3</li>
     </ul>
-    <ol >
+    <ol class="book2">
         <li>한번에 보는 역사책1</li>
         <li>한번에 보는 역사책2</li>
         <li>한번에 보는 역사책3</li>
         <li>한번에 보는 역사책4</li>
     </ol>
+    <iframe src="book.html" width="500" height="500"></iframe>
     <table>
         <tr>
             <td>가</td>
@@ -78,10 +143,12 @@
             <td>아</td>
         </tr>
 
-        
 
-<caption>한글</caption>
+
+        <caption>한글</caption>
     </table>
+    <p><span class="css"> 1500원</span></p>
 
 </body>
+
 </html>
