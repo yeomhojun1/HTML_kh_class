@@ -6,23 +6,186 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href="./resources/css/reset.css" rel="stylesheet">
+    <!-- 바디 레이아웃 -->
     <style>
-        .wrap {
-            width: 100%;
-            border: 1px solid black;
+        .wrap.header {
+            background-color: beige;
+        }
+
+        .wrap.content {
+            background-color: bisque;
+        }
+
+        .wrap.footer {
+            background-color: beige;
+        }
+
+        header,
+        .contents,
+        footer {
             box-sizing: border-box;
+            margin: 0 auto;
+            width: 600px;
+
         }
-        .wrap.header{
-        background-color: beige;
+
+        .content {
+            overflow: hidden;
         }
-        .wrap.content{
-        background-color: bisque;
+
+        section {
+            width: 394px;
+            float: left;
         }
-        .wrap.footer{
-        background-color: beige;
+
+        aside {
+            width: 194px;
+            float: right;
+
         }
-        header, #content, footer {
-            margin: 0 10% auto;
+
+        .content {
+            overflow: hidden;
+        }
+
+        article {
+            padding: 5px;
+            border: 1px solid black;
+            margin: 10px 10px 10px 0px;
+        }
+    </style>
+    <!-- 헤더 스타일 -->
+    <style>
+        header ul {
+            overflow: hidden;
+        }
+
+        header li {
+            float: left;
+        }
+
+        header {
+            position: relative;
+            height: 90px;
+        }
+
+        header>.logo {
+            position: absolute;
+            top: 20px;
+        }
+
+        header>.top-menu {
+            position: absolute;
+            right: 5px;
+            top: 0;
+        }
+
+        header>.main-menu {
+            position: absolute;
+            bottom: 0;
+            right: 5px;
+        }
+    </style>
+    <!-- 어사이드 스타일 -->
+    <style>
+        aside input[type=radio] {
+            display: none;
+        }
+
+        .items .tab-item {
+            display: none;
+        }
+
+        aside input[type=radio]:nth-of-type(1):checked~.items .tab-item:nth-child(1) {
+            display: block;
+        }
+
+        aside input[type=radio]:nth-of-type(2):checked~.items .tab-item:nth-child(2) {
+            display: block;
+        }
+
+        aside .labels {
+            overflow: hidden;
+            text-align: center;
+        }
+
+        aside input[type=radio]:nth-of-type(1):checked~.labels label:nth-child(1) {
+            display: block;
+            float: left;
+            width: 50%;
+            background-color: black;
+            color: white;
+        }
+
+        aside input[type=radio]:nth-of-type(2):checked~.labels label:nth-child(2) {
+            display: block;
+            float: left;
+            width: 50%;
+            background-color: black;
+            color: white;
+        }
+
+        aside .labels>label {
+            box-sizing: border-box;
+            border: 1px solid red;
+            display: block;
+            float: left;
+            width: 50%;
+            background-color: white;
+            color: black;
+            height: 30px;
+            line-height: 30px;
+
+
+        }
+
+        aside {
+            margin-top: 10px;
+
+        }
+
+        aside .items li {
+            /* border-bottom: 1px solid black;
+                border-left:1px solid black; 
+                border-right:1px solid black; */
+            /* border:1px solid black;
+                border-top: 0; */
+
+            border-color: black;
+            border-style: solid;
+            border-width: 0 1px 1px 1px;
+
+
+        }
+
+        aside .items li {
+            overflow: hidden;
+            padding: 5px;
+        }
+
+        aside .items li div {
+            float: left;
+        }
+
+        aside .items li .descript {
+            /*
+            말줄임 -1
+            */
+
+            width: 120px;
+        }
+
+        aside .items li .descript p {
+
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+            ;
+
+        }
+
+        aside .items li .thumnail {
+            margin-right: 5px;
         }
     </style>
 </head>
@@ -30,24 +193,125 @@
 <body>
     <div class="wrap header">
         <header>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque reiciendis quia, tenetur, accusamus natus
-                aspernatur possimus quod excepturi, est praesentium alias nam consequuntur quae fugit odio? Esse
-                consequuntur exercitationem commodi?Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque
-                reiciendis quia, tenetur, accusamus natus aspernatur possimus quod excepturi, est praesentium alias nam
-                consequuntur quae fugit odio? Esse consequuntur exercitationem commodi?Lorem ipsum dolor sit amet
-                consectetur adipisicing elit. Neque reiciendis quia, tenetur, accusamus natus aspernatur possimus quod
-                excepturi, est praesentium alias nam consequuntur quae fugit odio? Esse consequuntur exercitationem
-                commodi?</p>
+
+            <div class="logo"><img src="" width="50" , height="50"></div>
+            <div class="top-menu">
+                <ul>
+                    <li>상단메뉴1</li>
+                    <li>상단메뉴2</li>
+                    <li>상단메뉴3</li>
+                </ul>
+            </div>
+            <div class="main-menu">
+                <ul>
+                    <li>메뉴1</li>
+                    <li>메뉴2</li>
+                    <li>메뉴3</li>
+                </ul>
+            </div>
         </header>
     </div>
     <div class="wrap content">
-        <section></section>
-        <aside></aside>
+        <div class="contents">
+            <section>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto quibusdam eius inventore
+                distinctio
+                minus quaerat soluta debitis voluptates omnis incidunt porro ipsa harum vitae eveniet, aut commodi velit
+                sit
+                blanditiis.Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto quibusdam eius inventore
+                distinctio minus quaerat soluta debitis voluptates omnis incidunt porro ipsa harum vitae eveniet, aut
+                commodi velit sit blanditiis.Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto
+                quibusdam
+                eius inventore distinctio minus quaerat soluta debitis voluptates omnis incidunt porro ipsa harum vitae
+                eveniet, aut commodi velit sit blanditiis.Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Architecto quibusdam eius inventore distinctio minus quaerat soluta debitis voluptates omnis incidunt
+                porro
+                ipsa harum vitae eveniet, aut commodi velit sit blanditiis.
+            </section>
+            <aside>
+                <!-- 
+                <input type="button" value="a" onclick="a();">
+            <input type="button" value="b">
 
+
+             -->
+                <input type="radio" name="tab" id="first" checked>
+                <input type="radio" name="tab" id="second">
+                <div class="labels">
+                    <label for="first" id="test1">first</label>
+                    <label for="second" id="test2">second</label>
+                </div>
+                <div class="items">
+                    <div class="tab-item">
+                        <ul>
+                            <li>
+                                <a href="###">
+                                    <div class="thumnail">
+                                        <img src="http://dummyimage.com/45/ebc/ff0.jpg">
+                                    </div>
+
+                                    <div class="descript">
+                                        <p>html5 canvas</p>
+                                        <p>2020-03-08</p>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="###">
+                                    <div class="thumnail">
+                                        <img src="http://dummyimage.com/45/ebc/ff0.jpg">
+                                    </div>
+                                    <div class="descript">
+                                        <p>html5 semantic weddddddddd</p>
+                                        <p>2020-03-08</p>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <div class="thumnail">
+                                    <img src="http://dummyimage.com/45/ebc/ff0.jpg">
+                                </div>
+                                <div class="descript">
+                                    <p>html5 Audio</p>
+                                    <p>2020-03-08</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="thumnail">
+                                    <img src="http://dummyimage.com/45/ebc/ff0.jpg">
+                                </div>
+                                <div class="descript">
+                                    <p class="descript">html5 Video</p>
+                                    <p>2020-03-08</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="tab-item">
+                        <ul>
+                            <li>Semantic</li>
+                            <li>Transition</li>
+                            <li>...</li>
+                            <li>,,</li>
+                        </ul>
+                    </div>
+                </div>
+            </aside>
+        </div>
     </div>
     <div class="wrap footer">
-        <footer></footer>
+        <footer>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto quibusdam eius inventore distinctio
+            minus quaerat soluta debitis voluptates omnis incidunt porro ipsa harum vitae eveniet, aut commodi velit sit
+            blanditiis.Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto quibusdam eius inventore
+            distinctio minus quaerat soluta debitis voluptates omnis incidunt porro ipsa harum vitae eveniet, aut
+            commodi velit sit blanditiis.Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto quibusdam
+            eius inventore distinctio minus quaerat soluta debitis voluptates omnis incidunt porro ipsa harum vitae
+            eveniet, aut commodi velit sit blanditiis.</footer>
     </div>
+    <script>
+        var a1 = document.getElementById("test1").innerText;
+        alert(a1);
+document.getElementsById("test1").innerHTML="<b>바꿈!</b>"
+    </script>
 </body>
 
 </html>
