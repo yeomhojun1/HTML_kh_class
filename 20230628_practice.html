@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img src="./resources/images/2056977.svg" class="dh" width="300px">
+    <ul>
+        <li><a href="#" onclick="changeBg('green')">green</a></li>
+        <li><a href="#" onclick="changeBg('orange')">orange</a></li>
+        <li><a href="#" onclick="changeBg('purple')">purple</a></li>
+    </ul>
+    <script>
+        function changeBg(color){
+            var result = document.querySelector('#result');
+            result.style.bac
+        }
+        function addNumber(a,b){
+            var num1
+            var sum= a+b;
+            // alert("결과값 : "+sum);
+        }
+        addNumber(30,2);
+        var x = 10;
+        function displayNumber(){
+            var y= 20;
+
+            console.log("x is "+x);
+            console.log("y is "+y);
+        }
+        displayNumber();
+        function addNumber(num1, num2 ){
+            return num1+num2;
+        }
+        var sum = addNumber(10,20);
+        console.log(sum);
+        sum= 50;
+        console.log(sum);
+        var ddd = document.querySelector(".dh");
+        ddd.onclick = function(event){
+            alert(this.width);
+        }
+        var sss= document.querySelector(".dh");
+        sss.addEventListener("mouseover", changePic);
+        sss.addEventListener("mouseout", originPic);
+        function changePic(){
+            sss.src = "./resources/images/가방.jpg";
+        }
+        function originPic(){
+            sss.src = "./resources/images/2056977.svg";
+        }
+
+
+
+
+    </script>
+</body>
+</html>
