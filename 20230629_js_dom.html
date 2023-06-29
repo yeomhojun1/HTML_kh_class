@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Object Model</title>
+    <script src="/resources/js/jquery-3.7.0.js"></script>
+</head>
+
+<body>
+    <button type="button" id="btn1" class="c1">버튼 1</button>
+    <button type="button" id="btn2" class="">버튼 2</button>
+    <button type="button" id="btn3" class="c1 c2">버튼 3</button>
+    <button type="button" id="btn4" class="c2">버튼 4</button>
+    <button type="button" id="btn5" class="c2">버튼 5</button>
+
+    <button type="button" id="btn_add">추가</button>
+    <button type="button" id="btn_del">삭제</button>
+
+    <script>
+
+        function jQaddclickhandler() {
+            console.log("jQaddclickhandler 호출");
+            var htmlVal = "<div>안녕 난 js로 만들어진 노드야</div>"
+         $("body").append(htmlVal);
+        }
+        function jQdelclickhandler() {
+            console.log("jQdelclickhandler 호출");
+            var delElement = $("#btn4");
+            delElement.remove();
+        }
+
+        // $("#btn_add").on("click", jQaddclickhandler)
+        // $("#btn_del").on("click", jQdelclickhandler)
+
+        $("#btn_add").click(jQaddclickhandler);
+        $("#btn_del").click(jQdelclickhandler);
+        $('#btn2').prop("style", "border-color: red");
+    </script>
+
+
+
+
+
+
+    <!-- <div>안녕 난 js로 만들어진 노드야</div> -->
+    <script>
+        document.getElementById('btn5').style.backgroundColor = "red";
+
+
+
+        //화면에 element 요소 노드 및 text노드를 추가
+        //불편해서 jQuery로 대체될 예정
+        function addclickhandler() {
+            var div1 = document.createElement("div");
+            var textnode1 = document.createTextNode("안녕 난 js로 만들어진 노드야");
+            div1.appendChild(textnode1);
+            document.body.appendChild(div1);
+        }
+        //화면에 element 요소 노드 및 text노드를 삭제
+
+        function delclickhandler() {
+            var delElement = document.getElementById("btn4");
+            delElement.remove();
+        }
+        // var ddd = document.querySelector("#btn_add");
+        // var sss = document.querySelector("#btn_del");
+
+        // ddd.onclick = function addbtn() {
+        //     var div1 = document.createElement("button");
+        //     var textnode1 = document.createTextNode("안녕 난 js로 만들어진 노드야");
+        //     div1.appendChild(textnode1);
+        //     document.body.appendChild(div1);
+        // }
+        // sss.onclick = function delbtn() {
+        //     var delElement = document.getElementById("btn4");
+        //     delElement.remove();
+        // }
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

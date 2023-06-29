@@ -66,10 +66,11 @@
             margin: 10px 10px 10px 0;
         }
 
-        article .mission_a h2 a{
+        article .mission_a h2 a {
             font-size: 2rem !important;
-            
+
         }
+
         article .mission_a h2 a:hover::after {
             text-decoration: none;
             content: '뒤에 글이 불러나옴';
@@ -223,18 +224,18 @@
             height: 50px;
         }
 
-        article>#flex_wrap,
+        article>.flex_wrap,
         article .flex-category,
         article .flex-content-items,
         article .flex-content-follow {
             display: flex;
         }
 
-        article>#flex_wrap>div img.default-img {
+        article>.flex_wrap>div img.default-img {
             width: 100%;
         }
 
-        article>#flex_wrap>div {
+        article>.flex_wrap>div {
             border: 1px solid black;
             margin: 5px 3px;
         }
@@ -249,14 +250,14 @@
     <style>
         @media (min-width:1px) {
             *:not(h2 a) {
-                font-size: 0.6em;
+                font-size: 0..em;
             }
 
             body {
                 background-color: antiquewhite;
             }
 
-            #flex_wrap {
+            .flex_wrap {
                 flex-direction: column;
             }
 
@@ -281,7 +282,7 @@
                 background-color: antiquewhite;
             }
 
-            #flex_wrap {
+            .flex_wrap {
                 flex-direction: column;
             }
 
@@ -306,7 +307,7 @@
                 background-color: beige;
             }
 
-            #flex_wrap {
+            .flex_wrap {
                 flex-direction: row;
             }
         }
@@ -320,7 +321,7 @@
                 background-color: beige;
             }
 
-            #flex_wrap {
+            .flex_wrap {
                 flex-direction: row;
             }
         }
@@ -334,15 +335,16 @@
                 background-color: beige;
             }
 
-            #flex_wrap {
+            .flex_wrap {
                 flex-direction: row;
             }
         }
     </style>
-    
+
 </head>
 
 <body>
+    <script src="./resources/js/jquery-3.7.0.js"></script>
     <div class="wrap header">
         <header>
             <div id="logo">
@@ -417,7 +419,7 @@
                         eveniet iusto error fugit enim delectus!</p>
                 </article>
                 <article>
-                    <div id="flex_wrap">
+                    <div class="flex_wrap">
                         <div>
                             <div class="flex-title">제목1</div>
                             <div class="flex-img"><img src="https://dummyimage.com/250/ccc" class="default-img"></div>
@@ -519,10 +521,74 @@
                         similique quia inventore rerum assumenda possimus incidunt omnis illum tempora porro quaerat,
                         eveniet iusto error fugit enim delectus!</p>
                 </article>
-                <article>
+                <article id="dom_div">
+                    <div class="flex_wrap">
+                        <div>
+                            <div>
+                                <div class="flex-title">제목1</div>
+                                <div class="flex-img"><img src="https://dummyimage.com/250/ccc" class="default-img">
+                                </div>
+                                <div class="flex-content">
+                                    <div class="flex-category">
+                                        <div>전통주</div>
+                                        <div>추천</div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" id="btnAddContent">더보기</button>
+
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita excepturi aut perspiciatis,
                         similique quia inventore rerum assumenda possimus incidunt omnis illum tempora porro quaerat,
                         eveniet iusto error fugit enim delectus!</p>
+                        <script>
+                            function addDiv5(){
+                                var htmlVal ="";
+                                for(var i = 0;i<5;i++)
+                                htmlVal = `
+                                <div>
+                                <div class="flex-title">제목1</div>
+                                <div class="flex-img"><img src="https://dummyimage.com/250/ccc" class="default-img">
+                                </div>
+                                <div class="flex-content">
+                                    <div class="flex-category">
+                                        <div>전통주</div>
+                                        <div>추천</div>
+                                    </div>
+
+                                </div>
+                            </div>`;
+                            addDiv5();
+                            $("#dom_div>.flex_wrap").prev().append(htmlVal);
+                            }
+                        </script>
+                        <script>
+                            $("#btnAddContent").on("click",function(){
+                                var htmlVal ="";
+                                htmlVal += `
+                                <div>
+                                <div class="flex-title">제목1</div>
+                                <div class="flex-img"><img src="https://dummyimage.com/250/ccc" class="default-img">
+                                </div>
+                                <div class="flex-content">
+                                    <div class="flex-category">
+                                        <div>전통주</div>
+                                        <div>추천</div>
+                                    </div>
+
+                                </div>
+                            </div>`;
+
+
+                                $(this).prev().append(htmlVal);
+                                // $(".flex_wrap").append().append(htmlVal); 이거는 2개나옴
+                            });
+
+
+
+                        </script>
                 </article>
                 <article>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita excepturi aut perspiciatis,

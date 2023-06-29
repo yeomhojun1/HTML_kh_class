@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./resources/js/jquery-3.7.0.js"></script>
+    <script>
+        jQuery(document).ready(function(){
+            console.log("여기 loadevent - jQuery read");
+        });
+        jQuery(function(){
+            console.log("여기 loadevent - jQuery read");
+        });
+        $(document).ready(function(){
+            console.log("여기 loadevent - jQuery read");
+        });
+        $(function(){
+            console.log("여기 loadevent - jQuery read");
+        });
+        window.addEventListener("load",function(){
+            console.log("여기 loadevent");
+
+        })
+        // onload/ load : document가 모두 loading이 끝나면 발생하는 event
+        window.onload = function () {
+            console.log("여기 loadevent");
+        }
+    </script>
+</head>
+
+<body>
+    <div id="content">
+        <ul class="menu">
+            <li>menu1</li>
+            <li>menu2</li>
+            <li id="select">menu3</li>
+            <li>menu4</li>
+            <li>menu5</li>
+            <li>menu6</li>
+        </ul>
+    </div>
+    <button id="btnAdd">추가</button>
+</body>
+
+</html>
