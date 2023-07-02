@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./resources/js/jquery-3.7.0.js"></script>
+    <link href="/resources/css/reset.css" rel="stylesheet">
+    <style>
+        #colorbox{
+            background-color: white;
+            width: 200px;
+            height:  200px;
+            border: 1px solid black;
+        }
+    </style>
+    <script>
+     $(loadedHandler);
+     function loadedHandler(){
+        $('.incolor').on("click", colorClickHandler);
+
+     }
+     function colorClickHandler(event){
+        var color= $(this).val;
+        color = color(color);
+        $('#colorbox').css("background-color", color);
+        console.log(color);
+     }
+     $(document).ready(function() {
+      $("#color1").change(function() {
+        var color = $(this).val();
+        $("#colorbox").css("background-color", color);
+      });
+    });
+    </script>
+
+</head>
+
+<body>
+   <div id="colorbox"></div>
+    <form action="" method="get">
+        <input type="button" value="red" name="color" class="incolor">
+        <input type="button" value="blue" name="color" class="incolor">
+        <input type="button" value="yellow" name="color" class="incolor">
+        <input type="button" value="#ccc" name="color" class="incolor">
+        <hr>
+        <label>color code입력 후 enter <input type="text" name="color"></label>
+
+        <select name="color1">
+            <option value="yellow">yellow</option>
+            <option value="blue">blue</option>
+            <option value="pink">pink</option>
+        </select>
+    </form>
+</body>
+
+</html>
