@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <style>
+        .checkboxs {
+            display: grid;
+            grid-template-columns: auto auto auto auto auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <label for="allCheck">전체선택 : </label>
+        <input type="checkbox" id="allCheck">
+    </div>
+    <div class="checkboxs">
+        <div data-id="0">
+            <label for="id-1">종합 </label>
+            <input type="checkbox" id="id-0" class="item">
+        </div>
+        <div data-id="1">
+            <label for="id-1">종합 </label>
+            <input type="checkbox" id="id-1" class="item">
+        </div>
+        <div data-id="2">
+            <label for="id-2">소설 </label>
+            <input type="checkbox" id="id-2" class="item">
+        </div>
+        <div data-id="3">
+            <label for="id-3">시/에세이 </label>
+            <input type="checkbox" id="id-3" class="item">
+        </div>
+        <div data-id="4">
+            <label for="id-4">경제/경영 </label>
+            <input type="checkbox" id="id-4" class="item">
+        </div>
+        <div data-id="5">
+            <label for="id-5">자기계발 </label>
+            <input type="checkbox" id="id-5" class="item">
+        </div>
+        <div data-id="6">
+            <label for="id-6">아동 </label>
+            <input type="checkbox" id="id-6" class="item">
+        </div>
+    </div>
+    <div class="checkedItems"></div>
+    <script>
+var itemCnt= 6;
+ $(".item").on("click", itemCheckHandler);
+$("#allCheck").on("click", allCheckHandler);
+function itemCheckHandler(){
+    console.log($(".item:checked"));
+    if(itemCnt == $(".item:checked").length){
+            $("#allCheck").prop("checked", true);
+        } else{
+            $("#allCheck").prop("checked", false);
+        }
+}
+function allCheckHandler(){
+    console.log($(this).prop("checked"));
+    $(".item").prop("checked", $(this).prop("checked"));
+}
+
+
+
+    </script>
+</body>
+
+</html>

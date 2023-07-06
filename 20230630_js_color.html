@@ -8,51 +8,117 @@
     <script src="./resources/js/jquery-3.7.0.js"></script>
     <link href="/resources/css/reset.css" rel="stylesheet">
     <style>
-        #colorbox{
+        #colorbox {
             background-color: white;
             width: 200px;
-            height:  200px;
+            height: 200px;
             border: 1px solid black;
         }
     </style>
     <script>
-     $(loadedHandler);
-     function loadedHandler(){
-        $('.incolor').on("click", colorClickHandler);
 
-     }
-     function colorClickHandler(event){
-        var color= $(this).val;
-        color = color(color);
-        $('#colorbox').css("background-color", color);
-        console.log(color);
-     }
-     $(document).ready(function() {
-      $("#color1").change(function() {
-        var color = $(this).val();
-        $("#colorbox").css("background-color", color);
-      });
-    });
+
+
+        window.onload = loadedHandler;
+
+        function loadedHandler() {
+            //event 등록- 
+            $(".btncolor>input").on("click", btncolorclickhandler);
+            $(".btn.txtcolor").on("click", txtcolorclickhandler);
+            $(".selectcolor").on("change", colorchangehandler);
+            $("[type=text].txtcolor").on("keyup", txtcolorkeyuphandler);
+
+        }
+        function btncolorclickhandler(e) {//event객체가 e에 담김
+            // console.log("btn color");
+            // console.log(this);
+
+
+
+        }
+        function txtcolorkeyuphandler(e) {//event객체가 e에 담김
+            // console.log("txtcolorkeyuphandler");
+            // console.log(e.keyCode);
+            console.log(e.key);
+            // if(e.key=="Enter")
+            //중첩이벤트를 없애주는 코드임, 항상 세트로 다님, 요즘 browse에서 재현이 잘 안됨
+            //key/ mouse/ drag 관련 event에 사용해줌
+            
+            event.stopPropagation();
+            event.preventDefault();
+            if(e.keyCode==13){
+                $("#colorbox").css("background-color", "#" + $(this).val());
+
+            }
+
+        }
+        function txtcolorclickhandler(e) {//event객체가 e에 담김
+            // console.log("txtcolor");
+            console.log($(this).prev().val());
+            console.log($(".txtcolor").val());
+            $("#colorbox").css("background-color",  "#" +$(this).prev().val());
+
+
+        }
+        function colorchangehandler(e) {//event객체가 e에 담김
+            console.log("colorchange");
+            // this.value = $(this).val()는 선택한 option 요소의 value임
+            console.log($(this).val());
+            $("#colorbox").css("background-color", $(this).val());
+
+
+        }
+
+
+
+
+
+
+
+    //  function colorClickHandler(event){
+    //     var color= $(this).val();
+    //     color = color(color);
+    //     $('#colorbox').css("background-color", color);
+    //     console.log(color);
+    //  }
+    //  $(document).ready(function() {
+    //   $("#color1").change(function() {
+    //     var color = $(this).val();
+    //     $("#colorbox").css("background-color", color);
+    //   });
+    // });
     </script>
 
 </head>
 
 <body>
-   <div id="colorbox"></div>
-    <form action="" method="get">
+    <div id="colorbox"></div>
+    <div class="btncolor">
         <input type="button" value="red" name="color" class="incolor">
         <input type="button" value="blue" name="color" class="incolor">
         <input type="button" value="yellow" name="color" class="incolor">
         <input type="button" value="#ccc" name="color" class="incolor">
-        <hr>
-        <label>color code입력 후 enter <input type="text" name="color"></label>
-
-        <select name="color1">
+    </div>
+    <div>
+        <div>
+            #을 제외한 RGB 16진수 값을 작성하고 Enter키를 입력하거나 컬러적용 버튼을 눌러주세요.
+        </div>
+        <div>
+            <!-- form action 작성하지 않으면 자신의 페이지를 다시 refresh- reload한 결과가 나옴 -->
+            <!-- <form> -->
+                <input type="text" class="txtcolor">
+                <button class="btn txtcolor">컬러적용</button>
+            <!-- </form> -->
+        </div>
+    </div>
+    <div>
+        <select class="selectcolor">
             <option value="yellow">yellow</option>
             <option value="blue">blue</option>
             <option value="pink">pink</option>
         </select>
-    </form>
+        </form>
+
 </body>
 
 </html>
