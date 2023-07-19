@@ -10,8 +10,47 @@
             display: table-row;
             font-size: .7em;
             color: blue;
+            visibility: hidden;
 
-            visibility: hidden
+        }
+
+        .warning {
+            font-size: .7em;
+            color: red;
+
+
+        }
+
+        form {
+            width: 300px;
+            align-items: center;
+        }
+
+        input {
+            background-color: whitesmoke;
+            border: none;
+            border-bottom: 1px dotted black;
+        }
+
+        button {
+            width: 100%;
+            background-color: rgb(30, 218, 30);
+        }
+
+        .all {
+            background-color: rgb(161, 161, 255);
+            width: 500px;
+            height: 300px;
+            vertical-align: middle;
+        }
+
+        .all2 {
+             background-color: whitesmoke;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 300px;
+            margin: 0 10% ;
         }
     </style>
     <script src="http://code.jquery.com/jquery-3.7.0.js"></script>
@@ -19,52 +58,91 @@
         window.onload = loadedHandler;
         function loadedHandler() {
             $("[type=password]").click(inputClickHandler);
-            // $("[type=text]").click(inputClickHandler);
-
+            $(".req").blur(warningHandler);
         }
         function inputClickHandler(e) {
-            $("[type=passord].hint").css("visibility", "hidden");
-            var $hintElement = $(this).parents("table").children(".hint");
-         console.log($hintElement);
-            if(this!=$hintElement){
+            //연습            
+            // var thi1 = $(this).val();
+            // var htmlVal = ` <tr class="warning">
+            //     <td class="warning">영문자 대/소문자 특수문자, 숫자 포함 8 ~ 32자</td>
+            // </tr>`;
+            // console.log("2")
+            // $(this).parents("tr").append(htmlVal);
+            // var ease = $("table").find(".warning");
+            // if (focus!=thi1) {
+            //     ease.remove();
+            // }
+
+            
+            //되는거
+            $(".hint").css("visibility", "hidden");
+            var $hintElement = $(this).parents("tr").next(".hint");
             $hintElement.css("visibility", "visible");
-            }
+
         }
+        function warningHandler() {
+            //연습해보는거
+            var thi1 = $(this).val();
+            var htmlVal = ` <tr class="warning">
+                <td class="warning">필수 입력사항입니다</td>
+            </tr>`;
+            var ease = $("table").find(".warning");
+            ease.remove();
+            if (thi1 === "") {
+                
+                $(this).parents("tr").append(htmlVal);
+            }
+
+
+
+        }
+
     </script>
 </head>
 
 <body>
-    <form action="" method="post">
-        <table>
-            <tr>
-                <td>아이디</td>
-                <td><input type="text" name="mid" required></td>
+    <div class="all">
+        <div class="all2">
+            <form action="" method="post">
+                <table>
+                    <tr>
+                        <td>아이디</td>
+                        <td><input type="text" name="mid" required class="req"></td>
+                    </tr>
+                    <!-- <tr class="hint">
+                <td class="warning">필수 입력사항입니다</td>
+            </tr> -->
+                    <tr>
+                        <td>패스워드</td>
+                        <td><input type="password" name="pwd" required class="req"></td>
+                    </tr>
+                    <tr class="hint">
+              <td></td>
+                <td>(5-9, 영문자로 시작, 숫자, 특수기호_!만씀)</td>
             </tr>
 
-            <tr>
-                <td>패스워드</td>
-                <td><input type="password" name="pwd" required></td>
-            </tr>
-            <tr class="hint">
-                <td></td>
-                <td>영문자 대/소문자 특수문자, 숫자 포함 8~32자</td>
-            </tr>
-            <tr>
-                <td>패스워드 확인</td>
-                <td><input type="password" name="pwd" required></td>
-            </tr>
-            <tr>
-                <td>이메일</td>
-                <td><input type="text" name="mid"></td>
-            </tr>
+                    <tr>
+                        <td>패스워드 확인</td>
+                        <td><input type="password" name="pwdconfirm" required class="req"></td>
+                    </tr>
+                    <!-- <tr class="hint">
+                <td class="warning">필수 입력사항입니다</td>
+            </tr> -->
+                    <tr>
+                        <td>이메일</td>
+                        <td><input type="text" name="memail"></td>
+                    </tr>
 
-            <tr>
-                <td>주소</td>
-                <td><input type="text" name="mid"></td>
-            </tr>
+                    <tr>
+                        <td>주소</td>
+                        <td><input type="text" name="maddress"></td>
+                    </tr>
 
-        </table>
-        <button type="submit">가입</button>
+
+                </table>
+                <button type="submit">가입</button>
+        </div>
+    </div>
 </body>
 
 </html>
