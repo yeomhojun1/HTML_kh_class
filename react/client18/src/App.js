@@ -23,20 +23,33 @@ import ReactstrapCarousel from './R041_ReactstrapCarousel';
 import ReactstrapCollapse from './R042_ReactstrapCollapse';
 import ReactstrapFade from './R043_ReactstrapFade';
 import ReactstrapForm from './R044_ReactstrapForm';
-
 import ReactstrapInputListGroup from './R047_ReactstrapInputListGroup';
 import ReactstrapModal from './R048_ReactstrapModal';
 import ReactstrapNavbar from './R049_ReactstrapNavbar';
 import Pagination from './R050_ReactstrapPagination';
+import OnClick1 from './R066_onClick';
+import OnChange1 from './R067_onChange';
 function App() {
+  //67번 onchange를 설정해놓음
+  return (
+    <OnChange1></OnChange1>
+   )
+ }
+ export default App;
+  //66번 onclick이벤트를 설정해놓음
+//   return (
+//    <OnClick1></OnClick1>
+//   )
+// }
+// export default App;
   //50번
-  return(
-    <div>
-      <Pagination/>
-    </div>
-  );
-}
-export default App;
+//   return(
+//     <div>
+//       <Pagination/>
+//     </div>
+//   );
+// }
+// export default App;
     //49번 nav창
   //   return(
   //     <div>
