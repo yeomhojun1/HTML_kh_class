@@ -1,171 +1,172 @@
 import './App.css';
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
-import React, { useState } from 'react';
-/*
-url mapping 페이지 구성
-나타낼 속성들을 모아서 entity 별로 묶기
-이름, 가격, 단위 == 과일
-TODO delete - 목록화면에서 버튼 만들어서 1개 삭제
-TODO info - id 활용해서 보기
-*/
+import {BrowserRouter, Routes, Route, Link} from 'react-router-dom';
+import { useState } from 'react';
 
 function App() {
-  //const [a1, a2] = useState([10, 20, 30]);  // a1 저장공간생성
-  //const [a,seta] = useState();
 
-  // fruitList 이름의 저장공간 생성 선언
+  // 추가기능(input입력된 값)에서 사용할 저장공간
+  const [newFruit, setNewFruit]  = useState(
+    {
+      name : "",
+      price : "",
+      amount : ""
+    }
+  );
+
+  // 목록조회를 위한 저장공간
   const [fruitList, setFruitList] = useState(
     [
       {
-        id : '1',
-        name : '기본이름1',
-        price : '기본값1',
-        count : '기본단위1'
+        name : "수박",
+        price : "10000",
+        amount : "20"
       },
       {
-        id : '2',
-        name : '기본이름2',
-        price : '기본값2',
-        count : '기본단위2'
-      },
+        name : "참외",
+        price : "3000",
+        amount : "100"
+      }
+      // 이 부분에 추가 될 예정
     ]
   );
 
-  // newFruit 이름의 저장공간 생성 선언
-  const [newFruit, setNewFruit] = useState( 
-    {
-      id : '',
-      name : '기본이름',
-      price : '기본값',
-      count : '기본단위'
-    }
-  );
-  const insertHandler = () => {
-    console.log("insertHandler 함수실행");
-    console.log(newFruit); 
-    console.log(fruitList.lastIndexOf);
-    // TODO id 중복값 없게
-    // TODO 빈칸 없게
-    // 기존 fruitList에 동일한 것이 없다면 추가
-    setFruitList([...fruitList, newFruit]);
-    console.log(fruitList);
-  }
-  const onChangeInput = (event) => {
-    console.log("onchange "+event.target);
-    const {name, value,type} = event.target;
-    console.log("onchange "+name);
-    console.log("onchange "+value);
-    console.log("onchange "+type);
-    setNewFruit({...newFruit, [name]:value});
-    console.log(fruitList);
-  }
 
-  const InsertFruit = () => {
-    // 과일추가
-    // 과일목록보기
-    // 홈으로
+  const Home = ()=>{
     return (
       <>
-        <h1>과일추가</h1>
+        <h1>홈</h1>
         <nav>
           <ul>
-            <li><Link to="/list">과일목록보기</Link></li>
-            <li><Link to="/">홈</Link></li>
+            <li><Link to="/list">과일목록</Link></li>
+            <li><Link to="/insert">과일추가</Link></li>
           </ul>
         </nav>
-        <div>
-          <form>
-            <div><span>이름:</span><input type="text"  onChange={onChangeInput}  value={newFruit.name}  name="name" ></input></div>
-            <div><span>가격:</span><input type="text"  onChange={onChangeInput}  value={newFruit.price} name="price"></input></div>
-            <div><span>단위:</span><input type="text"  onChange={onChangeInput}  value={newFruit.count} name="count"></input></div>
-          </form>
-          <button onClick={insertHandler} >추가</button>
-        </div>
       </>
     );
   }
-
-
-  const List = (props) => {
-    // const n1 = props.n1;
-    // const n2 = props.n2;
-    // const {n1} = props;
-    // const {n2} = props;
-
-    // 리스트
-    // 과일추가
-    // 홈으로
+  const List = ()=>{
     return (
       <>
-        <h1>리스트</h1>
+        <h1>과일목록</h1>
         <nav>
           <ul>
             <li><Link to="/insert">과일추가</Link></li>
             <li><Link to="/">홈</Link></li>
           </ul>
         </nav>
-        <table>
-          <thead>
-            <tr>
-              <td>이름</td>
-              <td>가격</td>
-              <td>단위</td>
-            </tr>
-          </thead>
-          <tbody>
-            {
-              fruitList.map( (fruit)=> { 
-                console.log(fruit);
-                return (
-                  <tr>
-                    <td>{fruit.name}</td>
-                    <td>{fruit.price}</td>
-                    <td>{fruit.count}</td>
-                  </tr>
+        <div>
+          <table>
+            <thead>
+              <tr>
+                <th>이름</th>
+                <th>가격</th>
+                <th>수량</th>
+              </tr>
+            </thead>
+            <tbody>
+              {  // return () 에서 js 문법 사용을 위해 중괄호 사용
+                fruitList.map(
+                  (fruit) => {
+                    // return () 에서 render하고 싶은 내용을 작성
+                    return (
+                      <tr>
+                        <td>{fruit.name}</td>
+                        <td>{fruit.price}</td>
+                        <td>{fruit.amount}</td>
+                        <td><button onClick={ () => { onClickDeleteHandler(fruit.name);}  }>삭제</button></td>
+                      </tr>
+                    );
+                  }
                 )
-              } )
-            }
-          </tbody>
-        </table>
+              }
+            </tbody>
+          </table>
+        </div>
       </>
     );
   }
 
+  const onClickDeleteHandler = (name) => {
+    console.log(name);
+    const filteredFruitListTest = fruitList.filter((fruit)=>fruit.name == name);
+    console.log(filteredFruitListTest);
+    const filteredFruitList = fruitList.filter((fruit)=>fruit.name != name);
+    console.log(filteredFruitList);
+    // 목록용 저장공간 fruitList
+    setFruitList(filteredFruitList);
+  }
+
+  const onClickHandler = (event)=>{
+    // 유효성검사 빈칸
+    if(!newFruit.name || !newFruit.price || !newFruit.amount ){
+      alert("모든값을 입력해주세요.")
+      return;
+    }
+    // 유효성검사 - 같은 name 없도록
+    const isExist = fruitList.some((fruit)=>fruit.name == newFruit.name);
+    if(isExist){
+      alert("이미 등록된 과일이름입니다. 이름을 다시 입력해주세요.");
+      // 이름 입력란을 공란으로 만들기
+      setNewFruit({...newFruit, ["name"]:""});
+      return;
+    }
+
+    console.log("꼭 확인 !!! 클릭");
+    console.log(event.target); // js에서 event 발생하면 매개인자로 event 전달됨. 그것을 확인함.!!!
+    console.log("---------insert");
+    console.log(newFruit);
+    // 추가기능용 저장공간 newFruit 을 목록용 저장공간 fruitList 에 추가하기
+    setFruitList([...fruitList, newFruit]);
+
+    // 이름,가격,수량 입력란을 공란으로 만들기
+    setNewFruit({ name : "",  price : "",   amount : "" });
+  }
+  const onChangeHandler = (event)=>{
+    console.log("꼭 확인 !!! 변경");
+    console.log(event.target);  // js에서 event 발생하면 매개인자로 event 전달됨. 그것을 확인함.!!!
+    console.log(event.target.name);
+    console.log(event.target.value);
+    const {name, value} = event.target;
+    console.log(name);
+    console.log(value);
+    console.log("---------s");
+    console.log(newFruit);
+    // 추가기능용 저장공간 newFruit 에 값변경
+    setNewFruit({...newFruit, [name]:value});
+    console.log(newFruit);  // 변경됨 바로 확인 안됨!!
+    console.log("---------e");
+  }
+  const Insert = ()=>{
+    return (
+      <>
+        <h1>과일추가</h1>
+        <nav>
+          <ul>
+            <li><Link to="/list">과일목록</Link></li>
+            <li><Link to="/">홈</Link></li>
+          </ul>
+        </nav>
+        <div>
+          <div><span>이름</span><input onChange={onChangeHandler} name="name" value={newFruit.name}></input></div>
+          <div><span>가격</span><input onChange={onChangeHandler} name="price" value={newFruit.price}></input></div>
+          <div><span>수량</span><input onChange={onChangeHandler} name="amount" value={newFruit.amount}></input></div>
+          <div><button onClick={onClickHandler} >등록</button></div>
+        </div>
+        <List></List>
+      </>
+    );
+  }
   return (
     <BrowserRouter>
       <div className="App">
         <Routes>
-          <Route path="/" element={<Home></Home>} />
-          <Route path="/list" element={<List n1="v1" n2={1000} ></List>} />
-          <Route path="/insert" element={<InsertFruit></InsertFruit>} />
-          <Route path="/delete" element="{<DeleteFruit></DeleteFruit>}" />
-          <Route path="/info" element="" />
-          <Route path="/update" element="" />
+          <Route path='/' element={<Home></Home>} />
+          <Route path='/list' element={<List></List>} />
+          <Route path='/insert' element={<Insert></Insert>} />
         </Routes>
       </div>
     </BrowserRouter>
   );
 }
-const Home = () => {
-  // 홈
-  // 과일목록보기
-  // 과일추가
-  return (
-    <>
-      <h1>홈</h1>
-      <nav>
-        <ul>
-          <li><Link to="/list">과일목록보기</Link></li>
-          <li><Link to="/insert">과일추가</Link></li>
-        </ul>
-      </nav>
-    </>
-  );
-}
-const f0 = function () { console.log(); }
-const f1 = function (data, a) { console.log(); }
-const f2 = (data, a) => { console.log(); console.log(); }
-const f3 = (data) => { console.log(); }
-const f4 = data => console.log();
-const f5 = () => console.log();
+
 export default App;
